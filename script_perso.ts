@@ -37,7 +37,7 @@ initializeColorsLists(availableColors, availableColorsImg);
 
 //Compile es différentes couleurs sélectionnées par l'utilisateur et les injecte dans un tableau qui sera utilisé pour les comparaisons
 function compileCode() {
-    for (let i = 1; i < 5; i++) {
+    for (let i = 1; i <= 4; i++) {
         let colorSelector = document.getElementById(`color${i}`) as HTMLSelectElement;
         console.log(colorSelector.value);
         guessingCode.push(colorSelector.value);
@@ -50,24 +50,24 @@ function compareCodes(code1: Array<string | null>, code2: Array<string | null>) 
     let perfectColors: number = 0;
     let correctColors: number = 0;
     //création de copie des tableaux qu'on va pouvoir manipuler.
-    let code1copy = [...code1];
-    let code2copy = [...code2];
+    let code1Copy = [...code1];
+    let code2Copy = [...code2];
     //Première boucle qui permet de déterminer les couleurs qui matchent parfaitement. Les couleurs correctes et bien placées sont ensuite retirées des deux tableaux.
     for (let i = 0; i < code1.length; i++) {
         if (code1[i] == code2[i]) {
             perfectColors += 1;
-            code1copy[i] = null;
-            code2copy[i] = null;
+            code1Copy[i] = null;
+            code2Copy[i] = null;
         }
     }
     //Deuxième boule, qui permet de déterminer les couleurs correctes, mais mal placées. On itère sur les copies des tableaux, pour ne pas itérer sur les couleurs parfaites.
-    //L'itération est faisabe seulement si on a un élément non null.
+    //L'itération est faisable seulement si on a un élément non null.
     for (let i = 0; i < code1.length; i++) {
-        if (code1copy[i] !== null) {
-            const index = code2copy.indexOf(code1copy[i]);
+        if (code1Copy[i] !== null) {
+            const index = code2Copy.indexOf(code1Copy[i]);
             if (index !== -1) {
                 correctColors += 1;
-                code2copy[index] = null;
+                code2Copy[index] = null;
             }
         }
     }
@@ -76,9 +76,9 @@ function compareCodes(code1: Array<string | null>, code2: Array<string | null>) 
 
     //Mise à jour du nombre de couleurs correctes / parfaites et affichage
     function displayCorrespondance() {
-        let perfCol = document.getElementById("perfCol");
+        let perfCol = document.getElementById("perfCol") as HTMLElement;
         if (perfCol) perfCol.innerText = `Vous avez ${perfectColors} couleur.s correcte.s et bien placée.s`;
-        let corCol = document.getElementById("corCol");
+        let corCol = document.getElementById("corCol") as HTMLElement;
         if (corCol) corCol.innerText = `Vous avez ${correctColors} couleur.s correcte.s et mal placée.s`;
     }
     displayCorrespondance();
