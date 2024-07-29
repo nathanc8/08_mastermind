@@ -1,16 +1,25 @@
-const availableColors: Array<string> = ["blue", "red", "yellow", "green"];
-const codeToGuessEtape1: Array<string> = ["blue", "red"];
-let proposition: Array<string> = ["yellow", "green"];
+const availableColorsi: Array<string> = ["blue", "red", "yellow", "green"];
+let codeToGuessEtape1: Array<string> = ["blue", "red"];
+let proposition: Array<string> = ["blue", "red"];
 
-function colorRules(arr1: Array<string>, arr2: Array<string>): boolean {
-    for (let ele of arr1) {
-        if (!arr2.includes(ele)) return false;
+function colorRules(proposition: Array<string>, availableColors: Array<string>): boolean {
+    for (let ele of proposition) {
+        if (!availableColors.includes(ele)) return false;
+    }
+    return true;
+}
+console.log("colorRules console log : ", colorRules(proposition, availableColors));
+
+function win(solution: Array<string>, proposition: Array<string>): boolean {
+    for (let i = 0; i < solution.length; i++) {
+        if (!(solution[i] == proposition[i])) return false;
     }
     return true;
 }
 
-console.log(colorRules(codeToGuessEtape1, availableColors));
+console.log("win console log : ", win(codeToGuessEtape1, proposition));
 
-function win() {}
-
-function keepGoing() {}
+function keepGoing(a, b) {
+    let w = win(a, b);
+    if (!w) return false;
+}
