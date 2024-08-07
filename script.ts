@@ -1,4 +1,4 @@
-const availableColorsi: Array<string> = ["blue", "red", "yellow", "green"];
+const availableColors: Array<string> = ["blue", "red", "yellow", "green"];
 let codeToGuessEtape1: Array<string> = ["blue", "red"];
 let proposition: Array<string> = ["blue", "red"];
 
