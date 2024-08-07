@@ -1,0 +1,11 @@
+.guess {
+    display: flex;
+}
+
+.visible {
+    display: flex;
+}
+
+.invisible {
+    display: none;
+}

@@ -3,32 +3,33 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
         <title>Document</title>
     </head>
     <body>
-        <h1>Jeu du Mastermind</h1>
+        <h1>MasterMind Game</h1>
         <div id="gamePlayer">
             <div>
                 <select id="color1">
-                    <option value="">Select a color</option>
+                    <option value="" defaultSelected>Select a color</option>
                 </select>
                 <select id="color2">
-                    <option value="">Select a color</option>
+                    <option value="" defaultSelected>Select a color</option>
                 </select>
                 <select id="color3">
-                    <option value="">Select a color</option>
+                    <option value="" defaultSelected>Select a color</option>
                 </select>
                 <select id="color4">
-                    <option value="">Select a color</option>
+                    <option value="" defaultSelected>Select a color</option>
                 </select>
             </div>
             <div id="guesses">
                 <p id="perfCol"></p>
-                <p id="corCol"></p>
             </div>
         </div>
         <br />
-        <button onclick="areYouTheMasterMind()">Are you a MasterMind ?</button>
+        <button id="playButton" onclick="areYouTheMasterMind()" class="visible">Are you a MasterMind ?</button>
+        <button id="tryAgainButton" onclick="tryAgain()" class="invisible">Try again</button>
         <script src="script_perso.js"></script>
     </body>
 </html>
